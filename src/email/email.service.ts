@@ -16,6 +16,7 @@ export class EmailService {
   }
 
   async send(to: string, subject: string, html: string): Promise<void> {
+    this.logger.log(`Sending via Resend to=${to} subject="${subject}"`);
     try {
       await axios.post(
         'https://api.resend.com/emails',
